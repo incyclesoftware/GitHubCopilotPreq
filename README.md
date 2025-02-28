@@ -1,7 +1,8 @@
 Copilot Ubuntu scripts
 =======================
 
-This repository contains scripts to install and configure Ubuntu 18.04 LTS for Copilot sessions with InCycle.
+This repository contains scripts to install and configure Ubuntu 24.04 LTS for Copilot sessions with InCycle.
+Note that these scripts are intended to be run on an Ubuntu 24.04 LTS installation, lower versions may not work.
 
 Included scripts
 ----------------
@@ -27,7 +28,8 @@ This will install the following components:
 - GTest
 - boost
 - JDK 21
-- Python
+- Python, including notebooks and keras
+- .net core 8.0
 
 Run this for C++/JDK sessions.
 
@@ -45,8 +47,8 @@ There are test samples in the `samples` folder.
 
 ### All the scripts below require the main script to be run first.
 
-Node.js script:
-------------
+Node.js script
+-----------------
 
 ```bash
 sudo .scripts/install_node.sh
@@ -59,7 +61,7 @@ This will install the following components:
 
 For Node.js sessions, incuding Angular, React, Vue.js, etc.
 
-Go script:
+Go script
 ------------
 
 ```bash
