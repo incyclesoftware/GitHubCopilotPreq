@@ -1,4 +1,6 @@
 #!/bin/bash
+
+sudo apt-get update
 if [ "$1" = "" ]; then
 	go_version=$(curl https://go.dev/dl/ | grep -Po "go(\d+\.\d+\.\d)" |head -n 1|cut -c 3-20)
 else

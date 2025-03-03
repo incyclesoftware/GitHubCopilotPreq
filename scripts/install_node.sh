@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo apt-get update
 if [ "$1" = "" ]; then
   node_version=$(curl  https://nodejs.org/en/|grep -Po "v(\d+\.\d+\.\d)"|head -n 1)
 else
