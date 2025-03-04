@@ -1,3 +1,7 @@
 bin/
+build/
+builds/
 dumps/
 node_modules/
+obj/
+logs/
