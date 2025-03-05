@@ -86,3 +86,9 @@ Go sessions
 ### Running the samples
 
 In the `go` folder, there is a [readme file](samples/go/README.md) with instructions on how to run the samples.
+
+Java sessions
+--------------
+JDK is being installed as part of the C++/JDK script.
+You will need to install gradle, and snap  didn't work for us setting the example.
+Insructions to install gradle are in the [readme file](samples/java/README.md) with instructions on how to run the samples.
