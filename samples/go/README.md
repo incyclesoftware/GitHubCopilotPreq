@@ -10,3 +10,9 @@ go run main.go
 This will start a simple http server on port 8080. You can access it by opening a browser and navigating to `http://localhost:8080`.
 
 **Running will take a few seconds to start.**, this is normal.
+
+Sometimes web access is blocked to unsecure sites. In that case, you can use the curl command:
+
+```bash
+curl localhost:8080
+```

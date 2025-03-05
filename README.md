@@ -45,6 +45,15 @@ This version is recommended for users who want the most recent versions of the c
 2. The script must be run as root.
 3. For C++ session please run just **one** of the scripts above. If you run both, you will just install the advanced version.
 
+### running the samples:
+
+in the `cpp` folder, there is a [readme file](samples/cpp/README.md) with instructions on how to run the tests.
+
+Docker
+------
+
+Docker samples are in the `docker` folder. Follow the instructions in the [readme file](samples/docker/README.md) to run the samples.
+
 Node.js sessions
 ----------------
 
@@ -58,6 +67,9 @@ Node.js sessions
 2. The script must be run as root.
 3. If you do need C++ components, you must run the C++/JDK script first.
 
+### Running the samples
+
+In the `nodejs` folder, there is a [readme file](samples/nodejs/README.md) with instructions on how to run the samples.
 
 Go sessions
 -----------
@@ -70,3 +82,7 @@ Go sessions
 1. You do not need to run the C++/JDK script before if you are only running Go sessions. without C++ components.
 2. The script must be run as root.
 3. If you do need C++ components, you must run the C++/JDK script first.
+
+### Running the samples
+
+In the `go` folder, there is a [readme file](samples/go/README.md) with instructions on how to run the samples.
