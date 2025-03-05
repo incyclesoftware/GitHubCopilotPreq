@@ -5,9 +5,18 @@ project(CopilotReady)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Add all source files in the src directory
+# Add all source files in the src directory except main.cpp
 file(GLOB_RECURSE SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp)
-add_executable(${PROJECT_NAME} ${SOURCES})
+list(FILTER SOURCES EXCLUDE REGEX ".*main.cpp")
+
+# Create a static library from the source files
+add_library(applogic STATIC ${SOURCES})
+
+# Add the main.cpp file separately
+add_executable(${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/src/main.cpp)
+
+# Link the static library to the executable
+target_link_libraries(${PROJECT_NAME} PRIVATE applogic)
 # Include directories
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${PROJECT_SOURCE_DIR}/include
