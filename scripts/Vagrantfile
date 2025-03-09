@@ -1,0 +1,18 @@
+VAGRANTFILE_API_VERSION = '2'.freeze
+vnname='bento/ubuntu-24.04'
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  # Use the same key for each machine
+  config.ssh.insert_key = false
+  # image for all machines
+  config.vm.box = vnname
+  config.vm.provision "shell", path: "ubuntu24-lite.sh"
+  # machines config
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--memory", "2048"]
+    vb.customize ["modifyvm", :id, "--cpus", "2"]
+  end
+  # machine code:
+    config.vm.define "ubuntu24" do |node_node|
+      node_node.vm.network "private_network", ip: "192.168.56.5"
+  end
+end

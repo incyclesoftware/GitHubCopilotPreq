@@ -5,3 +5,4 @@ dumps/
 node_modules/
 obj/
 logs/
+.vagrant/
