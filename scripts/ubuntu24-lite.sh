@@ -1,6 +1,6 @@
 apt-get update
 # apt-get dist-upgrade -y
-apt-get install -y build-essential linux-headers-generic libxmltooling-dev gdb gdbserver cmake libcppunit-dev libclang-dev  openjdk-21-jdk clang-tools llvm nasm cmake net-tools valgrind -y
+apt-get install -y build-essential linux-headers-generic libxmltooling-dev gdb gdbserver cmake libcppunit-dev libclang-dev sqlite3 libsqlite3-dev openjdk-21-jdk clang-tools llvm nasm cmake net-tools valgrind -y
 apt-get install -y libboost-all-dev scons libecryptfs-dev libssl-dev libcurlpp-dev libclang-dev linux-tools-generic  libswscale-dev libswresample-dev libpostproc-dev libavdevice-dev ffmpeg -y
 apt-get install -y python3 python3-pip zip unzip ninja-build flex bison git-lfs
 

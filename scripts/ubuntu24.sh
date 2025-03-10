@@ -1,6 +1,6 @@
 apt-get update
 # apt-get dist-upgrade -y
-apt-get install -y build-essential linux-headers-generic libxmltooling-dev gdb gdbserver cmake libcppunit-dev libclang-dev  openjdk-21-jdk clang-tools llvm nasm cmake net-tools valgrind -y
+apt-get install -y build-essential linux-headers-generic libxmltooling-dev gdb gdbserver cmake libcppunit-dev libclang-dev sqlite3 libsqlite3-dev openjdk-21-jdk clang-tools llvm nasm cmake net-tools valgrind -y
 apt-get install -y libboost-all-dev scons libecryptfs-dev libssl-dev libcurlpp-dev libclang-dev python3-venv libusb-1.0-0-dev libusb-0.1-4 linux-tools-generic libavformat-dev libavcodec-dev libavutil-dev libavfilter-dev libswscale-dev libswresample-dev libpostproc-dev libavdevice-dev ffmpeg -y
 apt-get install -y ruby python3 ruby-dev python3-pip python3-notebook python3-sklearn python3-keras-applications zip unzip ninja-build python3-sphinx flex bison git-lfs
 # Add Docker's official GPG key:
