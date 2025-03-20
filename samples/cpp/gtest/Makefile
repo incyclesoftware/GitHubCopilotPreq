@@ -13,5 +13,5 @@ bin/test_sample.o: test_sample.cpp
 clean:
 	rm -rf ./bin
 
-run: test_sample
+run: clean test_sample
 	./bin/test_sample

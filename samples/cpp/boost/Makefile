@@ -11,7 +11,7 @@ $(TARGET): $(SRC)
 	mkdir -p bin
 	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET) $(LDFLAGS)
 
-run: $(TARGET)
+run: clean $(TARGET)
 	./$(TARGET)
 
 clean:
