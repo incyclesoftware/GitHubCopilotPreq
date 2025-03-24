@@ -4,6 +4,15 @@ CPP samples for Copilot
 In this folder you will find the samples for the Copilot sessions that are related to C++.
 Make sure you run the ubuntu24 or ubuntu24-lite script before running the samples.
 
+Run all the examples
+---------------------
+
+run
+
+```bash
+./run_all.sh
+```
+
 Boost example
 --------------
 
