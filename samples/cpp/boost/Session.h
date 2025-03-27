@@ -17,5 +17,5 @@ private:
     void do_write(std::size_t length);
 
     tcp::socket socket_;
-    char data_[1024];
+    char data_[2024];
 };
