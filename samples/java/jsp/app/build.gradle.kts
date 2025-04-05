@@ -24,19 +24,26 @@ dependencies {
     implementation("com.google.code.gson:gson:2.8.8")
     // Use JUnit test framework.
     testImplementation(libs.junit)
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.3")
 
     // This dependency is used by the application.
     implementation(libs.guava)
 }
+
 gretty {
     httpPort = 8080 // Change to an unused port
     contextPath = "/"
     servletContainer = "tomcat9"
 }
+
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
     }
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
 
