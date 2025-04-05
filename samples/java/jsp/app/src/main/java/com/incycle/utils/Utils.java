@@ -35,17 +35,32 @@ public class Utils {
     public static Connection getConnection(String dbFile) {
         String databasePath = getDatabasePath(dbFile);
         if (databasePath == null) {
+            System.err.println("Database file not found: " + dbFile);
             return null;
         }
+
         Connection conn = null;
-        for (int i = 0; i < 3 && conn == null; i++) {
+        int maxRetries = 3;
+        int retryDelay = 100; // Initial delay in milliseconds
+
+        for (int i = 0; i < maxRetries; i++) {
             try {
                 conn = DriverManager.getConnection("jdbc:sqlite:" + databasePath);
+                break; // Exit loop if connection is successful
             } catch (SQLException e) {
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException interruptedException) {
-                    Thread.currentThread().interrupt(); // Restore the interrupted status
+                System.err.println("Attempt " + (i + 1) + " failed: " + e.getMessage());
+                if (i == maxRetries - 1) {
+                    // Log the error if it's the last retry
+                    System.err.println("Failed to connect to database after " + maxRetries + " attempts.");
+                } else {
+                    try {
+                        Thread.sleep(retryDelay);
+                        retryDelay *= 2; // Exponential backoff
+                    } catch (InterruptedException interruptedException) {
+                        Thread.currentThread().interrupt(); // Restore the interrupted status
+                        System.err.println("Retry interrupted. Exiting...");
+                        break;
+                    }
                 }
             }
         }
