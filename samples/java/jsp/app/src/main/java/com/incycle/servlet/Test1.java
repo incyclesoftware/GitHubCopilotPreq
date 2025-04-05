@@ -57,6 +57,7 @@ public class Test1 extends HttpServlet {
                     response.getWriter().println("<p>Error 2: " + e.getMessage() + "</p>");
          
                 }
+            connection.close();
             } catch (Exception e) {
                 response.getWriter().println("<p>Error 1: " + e.getMessage() + "</p>");
          
