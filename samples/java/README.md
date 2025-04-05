@@ -17,7 +17,23 @@ Installing Gradle
 Running the samples
 -------------------
 
-Go to the console folder and run the following command:
-```bash
-gradle run
-```
+1. The console app (TDR session for Java):
+
+    Go to the console folder and run the following command:
+    ```bash
+    gradle run
+    ```
+
+2. The web app (TDR session for Java):
+
+    Go to the jsp folder and run the following command:
+    ```bash
+    gradle appRun
+    ```
+    
+    If you can run the web app, you can access it at `http://localhost:8080/`.
+    For the session you will need to install and test Node JS as well. You can find the installation for Linux [here](../../scripts/install_node.sh), for Windows, you can find the installation [here](https://nodejs.org/en/download/).
+    After installation, you can test it by following the instructions in the [Node JS README](../../samples/nodejs/README.md).
+
+    
+
