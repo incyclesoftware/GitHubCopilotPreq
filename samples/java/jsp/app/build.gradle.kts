@@ -7,7 +7,10 @@
 
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
-    application
+    // application
+    java
+    war
+    id("org.gretty") version "3.1.1"
 }
 
 repositories {
@@ -16,14 +19,20 @@ repositories {
 }
 
 dependencies {
-    
+    providedCompile("javax.servlet:javax.servlet-api:4.0.1")
+    implementation("org.xerial:sqlite-jdbc:3.36.0.3")
+    implementation("com.google.code.gson:gson:2.8.8")
     // Use JUnit test framework.
     testImplementation(libs.junit)
 
     // This dependency is used by the application.
     implementation(libs.guava)
 }
-
+gretty {
+    httpPort = 8080 // Change to an unused port
+    contextPath = "/"
+    servletContainer = "tomcat9"
+}
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
@@ -31,7 +40,3 @@ java {
     }
 }
 
-application {
-    // Define the main class for the application.
-    mainClass = "com.incycle.console.App"
-}
