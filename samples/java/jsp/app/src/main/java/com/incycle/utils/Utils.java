@@ -38,7 +38,7 @@ public class Utils {
             return null;
         }
         Connection conn = null;
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3 && conn == null; i++) {
             try {
                 conn = DriverManager.getConnection("jdbc:sqlite:" + databasePath);
             } catch (SQLException e) {
@@ -48,7 +48,7 @@ public class Utils {
                     Thread.currentThread().interrupt(); // Restore the interrupted status
                 }
             }
-        } 
+        }
         return conn;
     }
 
