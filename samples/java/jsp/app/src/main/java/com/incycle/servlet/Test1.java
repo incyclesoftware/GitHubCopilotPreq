@@ -2,7 +2,6 @@ package com.incycle.servlet;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -19,7 +18,8 @@ public class Test1 extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         // Set request character encoding to UTF-8
         request.setCharacterEncoding("UTF-8");
 
@@ -31,39 +31,40 @@ public class Test1 extends HttpServlet {
         response.getWriter().println("<h1>You entered: " + input + "</h1>");
         response.getWriter().println("</body></html>");
 
-        // Locate the database file using Utils class
-        var databasePath = Utils.getDatabasePath("database/inventory.db");
-
-        if (databasePath == null) {
-            response.getWriter().println("<p>Error: Database file not found.</p>");
-            return;
-        }
-
-        try (Connection connection = DriverManager.getConnection("jdbc:sqlite:" + databasePath)) {
-            Statement statement = connection.createStatement();
+        Connection connection = Utils.getConnection("database/inventory.db");
+        if (connection != null) {
             try {
-                ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
-                response.getWriter().println("<p>Database file located at: " + databasePath + "</p>");
+                Statement statement = connection.createStatement();
+                try {
+                    ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+         
 
-                response.getWriter().println("<table border='1'>");
-                response.getWriter().println("<tr><th>ID</th><th>Username</th><th>first name</th><th>last name</th></tr>");
-                while (resultSet.next()) {
-                    int id = resultSet.getInt("id");
-                    String name = resultSet.getString("username");
-                    String firstName = resultSet.getString("first_name");
-                    String lastName = resultSet.getString("last_name");
-                    response.getWriter().println("<tr><td>" + id + "</td><td>" + name + "</td><td>" + firstName + "</td><td>"+ lastName+ "</td></tr>");
+                    response.getWriter().println("<table border='1'>");
+                    response.getWriter()
+                            .println("<tr><th>ID</th><th>Username</th><th>first name</th><th>last name</th></tr>");
+                    while (resultSet.next()) {
+                        int id = resultSet.getInt("id");
+                        String name = resultSet.getString("username");
+                        String firstName = resultSet.getString("first_name");
+                        String lastName = resultSet.getString("last_name");
+                        response.getWriter().println("<tr><td>" + id + "</td><td>" + name + "</td><td>" + firstName
+                                + "</td><td>" + lastName + "</td></tr>");
+                    }
+                    response.getWriter().println("</table>");
+                    resultSet.close();
+                    statement.close();
+                } catch (Exception e) {
+                    response.getWriter().println("<p>Error 2: " + e.getMessage() + "</p>");
+         
                 }
-                response.getWriter().println("</table>");
-                resultSet.close();
-                statement.close();
             } catch (Exception e) {
-                response.getWriter().println("<p>Error 2: " + e.getMessage() + "</p>");
-                response.getWriter().println("<p>Database file located at: " + databasePath + "</p>");
+                response.getWriter().println("<p>Error 1: " + e.getMessage() + "</p>");
+         
             }
-        } catch (Exception e) {
-            response.getWriter().println("<p>Error 1: " + e.getMessage() + "</p>");
-            response.getWriter().println("<p>Database file located at: " + databasePath + "</p>");
+        }
+        else {
+            response.getWriter().println("<p>Error: Unable to connect to the database.</p>");
+         
         }
     }
 }
