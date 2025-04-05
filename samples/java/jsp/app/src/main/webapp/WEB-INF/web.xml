@@ -8,8 +8,13 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>DefaultServlet</servlet-name>
+        <servlet-class>com.incycle.servlet.DefaultServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>defaultServlet</servlet-name>
-        <url-pattern>/index.jsp</url-pattern>
+        <servlet-name>DefaultServlet</servlet-name>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 </web-app>
