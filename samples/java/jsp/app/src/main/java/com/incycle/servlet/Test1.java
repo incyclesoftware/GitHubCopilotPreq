@@ -46,12 +46,13 @@ public class Test1 extends HttpServlet {
                 response.getWriter().println("<p>Database file located at: " + databasePath + "</p>");
 
                 response.getWriter().println("<table border='1'>");
-                response.getWriter().println("<tr><th>ID</th><th>Name</th><th>Email</th></tr>");
+                response.getWriter().println("<tr><th>ID</th><th>Username</th><th>first name</th><th>last name</th></tr>");
                 while (resultSet.next()) {
                     int id = resultSet.getInt("id");
                     String name = resultSet.getString("username");
-                    String email = resultSet.getString("first_name");
-                    response.getWriter().println("<tr><td>" + id + "</td><td>" + name + "</td><td>" + email + "</td></tr>");
+                    String firstName = resultSet.getString("first_name");
+                    String lastName = resultSet.getString("last_name");
+                    response.getWriter().println("<tr><td>" + id + "</td><td>" + name + "</td><td>" + firstName + "</td><td>"+ lastName+ "</td></tr>");
                 }
                 response.getWriter().println("</table>");
                 resultSet.close();
