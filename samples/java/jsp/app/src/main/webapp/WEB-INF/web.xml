@@ -1,20 +1,6 @@
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.0">
     <servlet>
         <servlet-name>defaultServlet</servlet-name>
-        <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
-        <init-param>
-            <param-name>debug</param-name>
-            <param-value>0</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
+        <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>        
     </servlet>
-    <servlet>
-        <servlet-name>DefaultServlet</servlet-name>
-        <servlet-class>com.incycle.servlet.DefaultServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>DefaultServlet</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
 </web-app>
