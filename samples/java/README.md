@@ -35,5 +35,6 @@ Running the samples
     For the session you will need to install and test Node JS as well. You can find the installation for Linux [here](../../scripts/install_node.sh), for Windows, you can find the installation [here](https://nodejs.org/en/download/).
     After installation, you can test it by following the instructions in the [Node JS README](../../samples/nodejs/README.md).
 
+    You should also have Docker installed.
     
 
